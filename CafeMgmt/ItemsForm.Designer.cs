@@ -97,6 +97,7 @@
             label7.Size = new Size(28, 31);
             label7.TabIndex = 14;
             label7.Text = "X";
+            label7.Click += label7_Click;
             // 
             // label4
             // 
@@ -143,6 +144,7 @@
             button5.TabIndex = 18;
             button5.Text = "Edit";
             button5.UseVisualStyleBackColor = false;
+            button5.Click += button5_Click;
             // 
             // button1
             // 
@@ -156,6 +158,7 @@
             button1.TabIndex = 17;
             button1.Text = "Delete";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // label8
             // 
@@ -297,7 +300,7 @@
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             ItemsGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            ItemsGV.ColumnHeadersHeight = 4;
+            ItemsGV.ColumnHeadersHeight = 30;
             ItemsGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.White;
@@ -322,12 +325,12 @@
             ItemsGV.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty;
             ItemsGV.ThemeStyle.BackColor = Color.White;
             ItemsGV.ThemeStyle.GridColor = Color.FromArgb(231, 229, 255);
-            ItemsGV.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(100, 88, 255);
+            ItemsGV.ThemeStyle.HeaderStyle.BackColor = Color.DodgerBlue;
             ItemsGV.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
-            ItemsGV.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            ItemsGV.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
             ItemsGV.ThemeStyle.HeaderStyle.ForeColor = Color.White;
             ItemsGV.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            ItemsGV.ThemeStyle.HeaderStyle.Height = 4;
+            ItemsGV.ThemeStyle.HeaderStyle.Height = 30;
             ItemsGV.ThemeStyle.ReadOnly = false;
             ItemsGV.ThemeStyle.RowsStyle.BackColor = Color.White;
             ItemsGV.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
@@ -336,6 +339,7 @@
             ItemsGV.ThemeStyle.RowsStyle.Height = 29;
             ItemsGV.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
             ItemsGV.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            ItemsGV.CellContentClick += ItemsGV_CellContentClick;
             // 
             // CatCb
             // 

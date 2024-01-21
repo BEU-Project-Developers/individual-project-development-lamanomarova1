@@ -96,6 +96,7 @@
             label7.Size = new Size(28, 31);
             label7.TabIndex = 19;
             label7.Text = "X";
+            label7.Click += label7_Click;
             // 
             // label4
             // 

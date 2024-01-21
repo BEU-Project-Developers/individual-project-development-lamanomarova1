@@ -16,7 +16,11 @@ namespace CafeMgmt
         {
             InitializeComponent();
         }
+
+        // Establishing a connection to the database
         SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Melumatlar\Documents\Cafedb.mdf;Integrated Security=True;Connect Timeout=30;");
+
+        // Method to populate the UsersGV (DataGridView) with data from the UsersTbl
         void populate()
         {
             Con.Open();
@@ -28,6 +32,8 @@ namespace CafeMgmt
             UsersGV.DataSource = ds.Tables[0];
             Con.Close();
         }
+
+        // Button click event for navigating to the UserOrder form
         private void button3_Click(object sender, EventArgs e)
         {
             UserOrder uorder = new UserOrder();
@@ -35,6 +41,7 @@ namespace CafeMgmt
             this.Hide();
         }
 
+        // Button click event for navigating to the ItemsForm
         private void button4_Click(object sender, EventArgs e)
         {
             ItemsForm item = new ItemsForm();
@@ -42,6 +49,7 @@ namespace CafeMgmt
             this.Hide();
         }
 
+        // Label click event for navigating back to the login form
         private void label4_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -49,6 +57,7 @@ namespace CafeMgmt
             login.Show();
         }
 
+        // Button click event for adding a new user
         private void button2_Click(object sender, EventArgs e)
         {
             Con.Open();
@@ -61,11 +70,13 @@ namespace CafeMgmt
 
         }
 
+        // Form load event to populate the UsersGV on form load
         private void UsersForm_Load(object sender, EventArgs e)
         {
             populate();
         }
 
+        // Cell click event in the UsersGV (DataGridView) to fill the textboxes with selected user details
         private void UsersGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             unameTb.Text = UsersGV.SelectedRows[0].Cells[0].Value.ToString();
@@ -73,6 +84,7 @@ namespace CafeMgmt
             UpassTb.Text = UsersGV.SelectedRows[0].Cells[2].Value.ToString();
         }
 
+        // Button click event for deleting a user
         private void button1_Click(object sender, EventArgs e)
         {
             if (UphoneTb.Text == "")
@@ -91,22 +103,29 @@ namespace CafeMgmt
             }
         }
 
+        // Button click event for updating user details
         private void button5_Click(object sender, EventArgs e)
         {
-            if(UphoneTb.Text == "" || UpassTb.Text == "" || unameTb.Text == "")
+            if (UphoneTb.Text == "" || UpassTb.Text == "" || unameTb.Text == "")
             {
                 MessageBox.Show("Fill all the fields");
             }
             else
             {
-                Con.Open() ;
-                string query = "update UsersTbl set Uname='" + unameTb.Text + "' , Upassword = '" + UpassTb.Text + "'where Uphone = '"+UphoneTb.Text+"'";
+                Con.Open();
+                string query = "update UsersTbl set Uname='" + unameTb.Text + "' , Upassword = '" + UpassTb.Text + "'where Uphone = '" + UphoneTb.Text + "'";
                 SqlCommand cmd = new SqlCommand(query, Con);
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("User successfully updated");
                 Con.Close();
                 populate();
             }
+        }
+
+        // Label click event for exiting the application
+        private void label7_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
